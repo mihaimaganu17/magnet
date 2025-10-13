@@ -5,8 +5,12 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y python3 python3-pip
 RUN pip install flask==3.0.*
 
+# Create a directory
+RUN mkdir toolboard
+WORKDIR /toolboard
+
 # install app
-COPY hello.py /
+COPY hello.py .
 
 # final configuration
 ENV FLASK_APP=hello
