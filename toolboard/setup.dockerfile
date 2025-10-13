@@ -34,6 +34,16 @@ ENV PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
+# install corepack to enable yarn
+RUN npm install -g corepack
+
+# TMP: Copy dnd kit and install it
+RUN apt-get install -y git
+RUN git clone https://github.com/mihaimaganu17/dnd-kit.git
+WORKDIR /dnd-kit
+RUN yarn install
+WORKDIR /
+
 # --------------- Flask Instalation -----------------
 
 # install app dependencies
