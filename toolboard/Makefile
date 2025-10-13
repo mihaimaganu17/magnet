@@ -13,7 +13,8 @@ docker-run:
 .PHONY: docker-it
 docker-it:
 	docker run -it \
+	-e NODE_OPTIONS=--openssl-legacy-provider \
 	-p 6006:6006 \
 	-v dnd-kit:/toolboard/dnd-kit \
 	magnet:latest \
-	/bin/bash
+	yarn start:storybook
