@@ -1,0 +1,9 @@
+services:
+  dev:
+    build: .
+    ports:
+      - 6006:6006
+      - 8000:8000
+    volumes:
+      - ../reacte-newbie/ui_update:/ui_update
+      - .:/toolboard

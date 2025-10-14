@@ -1,14 +1,16 @@
 .PHONY: docker-setup
 docker-setup:
-	docker build -f setup.dockerfile -t magnet-setup:latest .
+	docker build -f toolboard/setup.dockerfile -t magnet-setup:latest ./toolboard
 
 .PHONY: docker-build
 docker-build: docker-setup
-	docker build -t magnet:latest .
+	docker build -t magnet:latest ./toolboard
 
 .PHONY: docker-run
 docker-run:
-	docker run -p 127.0.0.1:8000:8000 -p 127.0.0.1:6006:6006 magnet:latest
+	docker run -p 127.0.0.1:8000:8000 -p 127.0.0.1:6006:6006 \
+	-v ./react-newbie/ui_update:/ui_update \
+	magnet:latest
 
 .PHONY: docker-it
 docker-it:

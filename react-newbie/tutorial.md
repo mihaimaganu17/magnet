@@ -25,4 +25,5 @@ Building blocks of a model application:
 [createRoot React](https://react.dev/reference/react-dom/client/createRoot)
 [JSX converter](https://transform.tools/html-to-jsx)
 [Babel JSX to JS compiler](https://transform.tools/html-to-jsx)
-
+[Client-side tooling](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Overview#the_modern_tooling_ecosystem)
+[JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)

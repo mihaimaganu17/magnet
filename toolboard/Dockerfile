@@ -2,10 +2,10 @@ FROM magnet-setup:latest
 
 # Create a directory
 RUN mkdir toolboard
-WORKDIR /dnd-kit
 
 # install app
-COPY hello.py /toolboard
+COPY hello.py ./toolboard
+WORKDIR ./toolboard
 
 # final configuration
 ENV FLASK_APP=hello
