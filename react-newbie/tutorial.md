@@ -31,3 +31,4 @@ Building blocks of a model application:
 
 ## Chapter 6
 [JS Object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring)
+[Development before the fact](http://www.htius.com/Articles/Inside_DBTF.htm)

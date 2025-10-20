@@ -35,11 +35,16 @@ function Header3({title}) {
 }
 
 function HomePage() {
+    const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
     {/* You can nest React components inside each other like HTML components */}
     return <div>
-        <Header title="React" />
-        {/* Header3 component also accepts no props since we handle it in {@link createTitle} */}
-        <Header3 />
+        <Header title="Develop.Preview.Ship"/>
+        <ul>
+            {/* Convert the String array into an array of list items to be rendered */}
+            {
+                names.map((item) => (<li>{item}</li>))
+            }
+        </ul>
     </div>
 }
 
