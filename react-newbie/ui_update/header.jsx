@@ -7,10 +7,16 @@ const app = document.getElementById("some-div")
 function Header() {
     return <h1>Develop. Preview. Ship. - from Flask </h1>;
 }
+
+function HomePage() {
+    {/* You can nest React components inside each other like HTML components */}
+    return <div><Header/></div>
+}
+
 {/* Create a react root node that will allow react to take over the DOM */}
 const root = ReactDOM.createRoot(app);
 {/* 
     Call render to display the React components inside the above node
     React components need to be used similar to HTML tags, with angle brackets </>
     */}
-root.render(<Header/>);
+root.render(<HomePage/>);
