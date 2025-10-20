@@ -4,13 +4,43 @@ const app = document.getElementById("some-div")
     A component is a function that returns UI elements. 
     React components should be capitalized to distinguish them from plain HTML and JS.    
 */}
-function Header() {
-    return <h1>Develop. Preview. Ship. - from Flask </h1>;
+{/* Props are custom arguments you can pass as properties to React compoents */}
+function Header({title}) {
+    console.log(title);
+    {/* Using curly braces lets you write JS code in JSX markup */}
+    return <h1>{title}</h1>;
+}
+
+function Header1(props) {
+    {/* Accessing an object property with dot notation */}
+    return <h1>{props.title}</h1>;
+}
+
+function Header2({title}) {
+    {/* JS Template literal */}
+    return <h1>{`Cool ${title}`}</h1>;
+}
+
+function createTitle(title) {
+    if (title) {
+        return title;
+    } else {
+        return 'Default title';
+    }
+}
+
+function Header3({title}) {
+    {/* JS calling a function */}
+    return <h1>{createTitle(title)}</h1>;
 }
 
 function HomePage() {
     {/* You can nest React components inside each other like HTML components */}
-    return <div><Header/></div>
+    return <div>
+        <Header title="React" />
+        {/* Header3 component also accepts no props since we handle it in {@link createTitle} */}
+        <Header3 />
+    </div>
 }
 
 {/* Create a react root node that will allow react to take over the DOM */}

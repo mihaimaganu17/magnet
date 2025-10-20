@@ -28,3 +28,6 @@ Building blocks of a model application:
 [Babel JSX to JS compiler](https://transform.tools/html-to-jsx)
 [Client-side tooling](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Overview#the_modern_tooling_ecosystem)
 [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+
+## Chapter 6
+[JS Object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring)
