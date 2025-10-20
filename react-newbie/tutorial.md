@@ -20,6 +20,7 @@ Building blocks of a model application:
 
 ## Chapter 3
 [Declarative React](https://react.dev/learn/reacting-to-input-with-state#how-declarative-ui-compares-to-imperative)
+[Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
 
 ## Chapter 4
 [createRoot React](https://react.dev/reference/react-dom/client/createRoot)
