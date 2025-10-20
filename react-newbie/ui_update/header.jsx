@@ -40,9 +40,9 @@ function HomePage() {
     return <div>
         <Header title="Develop.Preview.Ship"/>
         <ul>
-            {/* Convert the String array into an array of list items to be rendered */}
+            {/* Enter JS land and Convert the String array into an array of list items to be rendered */}
             {
-                names.map((item) => (<li>{item}</li>))
+                names.map((item) => (<li key={item}>{item}</li>))
             }
         </ul>
     </div>
