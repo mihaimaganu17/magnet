@@ -30,5 +30,7 @@ Building blocks of a model application:
 [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 
 ## Chapter 6
+[Paasing props to a component](https://react.dev/learn/passing-props-to-a-component)
 [JS Object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring)
 [Development before the fact](http://www.htius.com/Articles/Inside_DBTF.htm)
+[Double curlies](https://react.dev/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx)
