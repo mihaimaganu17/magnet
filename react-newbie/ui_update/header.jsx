@@ -2,9 +2,10 @@
 const app = document.getElementById("some-div")
 {/* 
     A component is a function that returns UI elements. 
-    React components should be capitalized to distinguish them from plain HTML and JS.    
+    React components should be capitalized (Header with capital `H`) to distinguish them from plain
+    HTML and JS.    
 */}
-{/* Props are custom arguments you can pass as properties to React compoents */}
+{/* Props are custom arguments you can pass as properties to React compoents (e.g. title) */}
 function Header({title}) {
     console.log(title);
     {/* Using curly braces lets you write JS code in JSX markup */}
