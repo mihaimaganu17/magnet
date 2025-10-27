@@ -56,6 +56,13 @@ function HomePage() {
         */}
 
     const [likes, setLikes] = React.useState(0);
+
+    {/*
+        Event handler functions like `handleClick`:
+        - Are usually defined inside your components
+        - Have names that start with `handle`, followed by the name of the event.
+        - Are passed as a prop to the component.
+        */}
     function handleClick() {
         setLikes(likes + 1);
     }

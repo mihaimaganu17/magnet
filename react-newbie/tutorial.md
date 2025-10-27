@@ -34,3 +34,6 @@ Building blocks of a model application:
 [JS Object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring)
 [Development before the fact](http://www.htius.com/Articles/Inside_DBTF.htm)
 [Double curlies](https://react.dev/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx)
+
+## Chapter 7
+[Browser event handler names](https://react.dev/reference/react-dom/components/common#common-props)
