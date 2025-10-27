@@ -37,6 +37,9 @@ function Header3({title}) {
 
 function HomePage() {
     const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+    function handleClick() {
+        console.log("somebody likes")
+    }
     {/* You can nest React components inside each other like HTML components */}
     return <div>
         <Header title="Develop.Preview.Ship"/>
@@ -46,6 +49,7 @@ function HomePage() {
                 names.map((item) => (<li key={item}>{item}</li>))
             }
         </ul>
+        <button onClick={handleClick}>Like</button>
     </div>
 }
 
