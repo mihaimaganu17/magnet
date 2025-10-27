@@ -37,8 +37,27 @@ function Header3({title}) {
 
 function HomePage() {
     const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+    {/* Functions starting with `use` are called Hooks.
+        You can only call Hooks at the top of your components (or other Hooks).
+        If you want to use useState in a condition or a loop, extract a new component and put it there.
+
+        useState is a built-in Hook provided by React.
+        useState returns an array and you can access the contents inside your component using array
+        destructuring:
+        - The first item in the array is the state value, in our case, number of likes 
+        - The second item in the array is a function to update the value. It is common to prefix
+        the name of the function with `set`.
+        We will also add the initial value of likes state to 0.
+        
+        Unlike props which are passed to components as the first function parameter,
+        the state is initiated and stored within a component.
+        You can pass the state information to children components as props, but the logic for
+        updating the state should be kept within the component where state was initially created.
+        */}
+
+    const [likes, setLikes] = React.useState(0);
     function handleClick() {
-        console.log("somebody likes")
+        setLikes(likes + 1);
     }
     {/* You can nest React components inside each other like HTML components */}
     return <div>
@@ -49,14 +68,17 @@ function HomePage() {
                 names.map((item) => (<li key={item}>{item}</li>))
             }
         </ul>
-        <button onClick={handleClick}>Like</button>
+        {/*you can use onChange for input fields or onSubmit for forms.*/ }
+        <button onClick={handleClick}>Like ({likes})</button>
     </div>
 }
 
 {/* Create a react root node that will allow react to take over the DOM */}
 const root = ReactDOM.createRoot(app);
-{/* 
+{
+    /* 
     Call render to display the React components inside the above node
     React components need to be used similar to HTML tags, with angle brackets </>
-    */}
+    */
+}
 root.render(<HomePage/>);
