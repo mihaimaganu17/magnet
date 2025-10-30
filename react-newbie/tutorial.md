@@ -36,4 +36,5 @@ Building blocks of a model application:
 [Double curlies](https://react.dev/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx)
 
 ## Chapter 7
+[Responding to events](https://react.dev/learn/responding-to-events)
 [Browser event handler names](https://react.dev/reference/react-dom/components/common#common-props)
