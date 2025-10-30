@@ -44,9 +44,10 @@ function HomePage() {
         useState is a built-in Hook provided by React.
         useState returns an array and you can access the contents inside your component using array
         destructuring:
-        - The first item in the array is the state value, in our case, number of likes 
-        - The second item in the array is a function to update the value. It is common to prefix
-        the name of the function with `set`.
+        - The first item in the array is the state value, in our case, number of likes, which retains
+        the data between renders.
+        - The second item in the array is a function to update the variable value and trigger React
+        to render the component again. It is common to prefix the name of the function with `set`.
         We will also add the initial value of likes state to 0.
         
         Unlike props which are passed to components as the first function parameter,
