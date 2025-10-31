@@ -9,7 +9,7 @@ docker-build: docker-setup
 .PHONY: docker-run
 docker-run:
 	docker run -p 127.0.0.1:8000:8000 -p 127.0.0.1:6006:6006 \
-	-v ./react-newbie/ui_update:/ui_update \
+	-v ./toolboard:/toolboard \
 	magnet:latest
 
 .PHONY: docker-it
@@ -18,5 +18,7 @@ docker-it:
 	-e NODE_OPTIONS=--openssl-legacy-provider \
 	-p 6006:6006 \
 	-v dnd-kit:/toolboard/dnd-kit \
+	-v ./toolboard:/toolboard \
 	magnet:latest \
-	yarn start:storybook
+	/bin/bash
+#	yarn start:storybook

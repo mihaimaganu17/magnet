@@ -4,7 +4,6 @@ FROM magnet-setup:latest
 RUN mkdir toolboard
 
 # install app
-COPY hello.py /toolboard
 WORKDIR /toolboard
 
 # install react, react-dom and nextjs

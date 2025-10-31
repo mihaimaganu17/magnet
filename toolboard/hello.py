@@ -1,9 +1,9 @@
-from flask import Flask, send_file
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/header.jsx", methods=['GET'])
 def header():
-    with open("/ui_update/header.jsx", "r") as f:
+    with open("./app/header.jsx", "r") as f:
         data = f.read()
     response = app.response_class(
         data
@@ -13,4 +13,4 @@ def header():
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "Hello world!"
