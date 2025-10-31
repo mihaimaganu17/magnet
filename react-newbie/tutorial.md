@@ -44,3 +44,10 @@ Building blocks of a model application:
 
 ## Chapter 10
 [Fast refresh](https://nextjs.org/docs/architecture/fast-refresh)
+
+# App Router
+
+## Chapter 1
+[mockAPI data](https://mockapi.io)
+[auto generate types with Prisma ORM](https://www.prisma.io)
+[drizzle ORM](https://orm.drizzle.team)
