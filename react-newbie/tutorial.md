@@ -51,3 +51,9 @@ Building blocks of a model application:
 [mockAPI data](https://mockapi.io)
 [auto generate types with Prisma ORM](https://www.prisma.io)
 [drizzle ORM](https://orm.drizzle.team)
+
+## Chapter 2
+[tailwind css](https://tailwindcss.com)
+[tailwing utility classes](https://tailwindcss.com/docs/styling-with-utility-classes)
+[clsx toggle class names](https://github.com/lukeed/clsx)
+[CSS docs in nextjs](https://nextjs.org/docs/app/getting-started/css)
