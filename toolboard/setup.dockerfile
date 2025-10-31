@@ -37,6 +37,7 @@ RUN npm -v
 # install corepack to enable yarn
 RUN npm install -g corepack
 
+
 # TMP: Copy dnd kit and install it
 RUN apt-get install -y git
 RUN git clone https://github.com/mihaimaganu17/dnd-kit.git

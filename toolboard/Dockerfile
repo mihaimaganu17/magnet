@@ -4,8 +4,11 @@ FROM magnet-setup:latest
 RUN mkdir toolboard
 
 # install app
-COPY hello.py ./toolboard
-WORKDIR ./toolboard
+COPY hello.py /toolboard
+WORKDIR /toolboard
+
+# install react, react-dom and nextjs
+RUN npm install react@19.2.0 react-dom@19.2.0 next@16.0.1
 
 # final configuration
 ENV FLASK_APP=hello
