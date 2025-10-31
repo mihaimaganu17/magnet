@@ -1,10 +1,12 @@
 {
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "tsc": "tsc"
   },
   "dependencies": {
     "next": "^16.0.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3"
   }
 }

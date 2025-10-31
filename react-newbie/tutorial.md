@@ -38,3 +38,9 @@ Building blocks of a model application:
 ## Chapter 7
 [Responding to events](https://react.dev/learn/responding-to-events)
 [Browser event handler names](https://react.dev/reference/react-dom/components/common#common-props)
+
+## Chapter 9
+[Layout and Pages](https://nextjs.org/learn/react-foundations/installation)
+
+## Chapter 10
+[Fast refresh](https://nextjs.org/docs/architecture/fast-refresh)

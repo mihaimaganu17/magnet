@@ -1,5 +1,4 @@
-import { userState } from 'react';
-
+import LikeButton from './like-button';
 {/* 
     A component is a function that returns UI elements. 
     React components should be capitalized (Header with capital `H`) to distinguish them from plain
@@ -58,17 +57,6 @@ export default function HomePage() {
         updating the state should be kept within the component where state was initially created.
         */}
 
-    const [likes, setLikes] = useState(0);
-
-    {/*
-        Event handler functions like `handleClick`:
-        - Are usually defined inside your components
-        - Have names that start with `handle`, followed by the name of the event.
-        - Are passed as a prop to the component.
-        */}
-    function handleClick() {
-        setLikes(likes + 1);
-    }
     {/* You can nest React components inside each other like HTML components */}
     return <div>
         <Header title="Develop.Preview.Ship"/>
@@ -78,8 +66,7 @@ export default function HomePage() {
                 names.map((item) => (<li key={item}>{item}</li>))
             }
         </ul>
-        {/*you can use onChange for input fields or onSubmit for forms.*/ }
-        <button onClick={handleClick}>Like ({likes})</button>
+        <LikeButton />
     </div>
 }
 
