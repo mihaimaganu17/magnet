@@ -57,3 +57,6 @@ Building blocks of a model application:
 [tailwing utility classes](https://tailwindcss.com/docs/styling-with-utility-classes)
 [clsx toggle class names](https://github.com/lukeed/clsx)
 [CSS docs in nextjs](https://nextjs.org/docs/app/getting-started/css)
+
+## Chapter 3
+[Image file type and format guide](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types#webp)
