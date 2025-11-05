@@ -60,3 +60,6 @@ Building blocks of a model application:
 
 ## Chapter 3
 [Image file type and format guide](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types#webp)
+
+## Chapter 6
+[bcryp](https://github.com/pyca/bcrypt)
