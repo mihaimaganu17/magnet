@@ -66,3 +66,8 @@ Building blocks of a model application:
 
 ## Chapter 7
 [postgres.js](https://github.com/porsager/postgres)
+
+### Data visualisation UI
+[Vercel's Tremor contains nice templates](https://www.tremor.so/)
+Good for playful colors and themes [ChartJS](https://www.chartjs.org/)
+Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
