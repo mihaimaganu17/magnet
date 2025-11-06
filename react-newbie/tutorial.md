@@ -63,3 +63,6 @@ Building blocks of a model application:
 
 ## Chapter 6
 [bcryp](https://github.com/pyca/bcrypt)
+
+## Chapter 7
+[postgres.js](https://github.com/porsager/postgres)
