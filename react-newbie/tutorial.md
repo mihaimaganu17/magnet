@@ -71,3 +71,9 @@ Building blocks of a model application:
 [Vercel's Tremor contains nice templates](https://www.tremor.so/)
 Good for playful colors and themes [ChartJS](https://www.chartjs.org/)
 Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
+
+## Chapter 8
+[Caching in NextJS](https://nextjs.org/docs/app/guides/caching#request-memoization)
+
+## Chapter 9
+[React Suspense](https://react.dev/reference/react/Suspense)
