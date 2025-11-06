@@ -3,7 +3,6 @@ import { fetchRevenue, fetchLatestInvoices, fetchCardData } from "@/app/lib/data
 import RevenueChart from "@/app/ui/dashboard/revenue-chart";
 import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
 import { Card }  from "@/app/ui/dashboard/cards";
-import { Carrois_Gothic } from "next/font/google";
 
 export default async function Page() {
     const revenue = await fetchRevenue();
