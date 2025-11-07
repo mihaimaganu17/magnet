@@ -14,4 +14,4 @@ ENV FLASK_APP=hello
 # needed in order to run dnd storybook
 ENV NODE_OPTIONS=--openssl-legacy-provider
 EXPOSE 8000
-CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["flask", "run", "--host", "1.0.0.0", "--port", "8000"]
