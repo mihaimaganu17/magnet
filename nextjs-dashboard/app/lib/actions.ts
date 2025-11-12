@@ -5,6 +5,13 @@
 
 // Zod for type validation schema
 import { z } from 'zod';
+import postgres from 'postgres';
+// Allows to invalidate cached data on demand for a specific path. Can be called in Server Functions
+// and route handlers.
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 const FormSchema = z.object({
     id: z.string(),
@@ -31,7 +38,7 @@ export async function createInvoice(formData: FormData) {
     };
 
     // Validate the types using zod
-    const { customerId, amount, status } = CreateInvoice.parse({rawFormData});
+    const { customerId, amount, status } = CreateInvoice.parse(rawFormData);
 
     // It is good practice to store monetary values in cents in your database to eliminate JS
     // floating-point errors and ensure greater accuracy.
@@ -39,6 +46,14 @@ export async function createInvoice(formData: FormData) {
     // Create a new `YYYY-MM-DD` date
     const date = new Date().toISOString().split('T')[0];
 
-    console.log(rawFormData);
-    console.log(typeof rawFormData.amount);
+    await sql`
+        INSERT INTO invoices (customer_id, amount, status, date)
+        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+    `;
+
+    // Revalidate the cache for the invoices specific page path, with fresh data fetched from the
+    // server
+    revalidatePath('/dashboard/invoices');
+    // Redirect the user back to the `/dashboard/invoices` page
+    redirect('/dashboard/invoices');
 }
