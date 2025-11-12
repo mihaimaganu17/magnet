@@ -78,6 +78,9 @@ Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
 ## Chapter 9
 [React Suspense](https://react.dev/reference/react/Suspense)
 
-## Chapter 11
+## Chapter 10
 [useRouter NextJS hook](https://nextjs.org/docs/app/api-reference/functions/use-router#userouter)
 [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+
+## Chapter 11
+[NextJS caching](https://nextjs.org/docs/app/guides/caching)
