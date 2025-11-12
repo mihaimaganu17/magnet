@@ -2,6 +2,7 @@
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
@@ -10,7 +11,15 @@ export default function Search({ placeholder }: { placeholder: string }) {
   // the `replace` method will replace the current URL of the page with the specified URL
   const { replace } = useRouter();
 
-  function handleSearch(term: string) {
+  // Debouncing reduces the number of requests made to the database, such that we do not perform a
+  // server request everytime an event occurs (everytime the user gives a letter to the input).
+  // use debouncing callback that starts a timer and it resets the timer whenever a new event occurs
+  // before the timer expiring. If the timer expires, the closure (debounced function is executed).
+  // In this case the times is 300 ms
+  const handleSearch = useDebouncedCallback((term: string) => {
+    // Logging to debug debouncing
+    console.log(`Searching... ${term}`);
+
     const params = new URLSearchParams(searchParams);
 
     // Set the URL parameters according to the user's query
@@ -23,7 +32,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
     replace(`${pathname}?${params.toString()}`)
     console.log(term);
-  }
+  }, 300);
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
