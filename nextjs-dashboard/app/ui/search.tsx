@@ -21,7 +21,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
     console.log(`Searching... ${term}`);
 
     const params = new URLSearchParams(searchParams);
-
+    // Always reset to first page when the user searches a new query
+    params.set('page', '1');
     // Set the URL parameters according to the user's query
     if (term) {
       params.set('query', term);
