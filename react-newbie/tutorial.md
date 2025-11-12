@@ -84,3 +84,4 @@ Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
 
 ## Chapter 11
 [NextJS caching](https://nextjs.org/docs/app/guides/caching)
+[FormData methods](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
