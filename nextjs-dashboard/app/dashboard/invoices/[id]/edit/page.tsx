@@ -1,6 +1,7 @@
 import { fetchCustomers, fetchInvoiceById } from '@/app/lib/data';
 import Form from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import { notFound } from 'next/navigation';
 
 export default async function Page(props: { params: Promise<{id: string}>}) {
     // Get the id from the parameters
@@ -12,6 +13,11 @@ export default async function Page(props: { params: Promise<{id: string}>}) {
         fetchInvoiceById(id),
         fetchCustomers(),
     ]);
+
+    // If the invoice does not exist, invoke `notFound`
+    if (!invoice) {
+        notFound();
+    }
 
     return (
         <main>
