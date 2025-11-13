@@ -16,6 +16,7 @@ export default async function Page(props: { params: Promise<{id: string}>}) {
 
     // If the invoice does not exist, invoke `notFound`
     if (!invoice) {
+        // notFound takes precedence over `error.tsx`
         notFound();
     }
 

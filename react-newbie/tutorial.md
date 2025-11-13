@@ -91,3 +91,4 @@ Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
 
 ## Chapter 12
 [useRef at the top of a component to declare a component reference](https://react.dev/reference/react/useRef#returns)
+[meta tags for search engines](https://developers.google.com/search/docs/crawling-indexing/special-tags)
