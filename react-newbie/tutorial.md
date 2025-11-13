@@ -88,3 +88,6 @@ Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
 [Zod typescript schema validation with static type inferece](https://zod.dev)
 [Dynamic route segments](https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes)
 [Security in NextJS](https://nextjs.org/blog/security-nextjs-server-components-actions)
+
+## Chapter 12
+[useRef at the top of a component to declare a component reference](https://react.dev/reference/react/useRef#returns)
