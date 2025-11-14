@@ -97,7 +97,20 @@ export async function updateInvoice(id: string, previousState: State, formData: 
     };
 
     // Validate the types using zod
-    const { customerId, amount, status } = UpdateInvoice.parse(rawFormData);
+    const validateFields = UpdateInvoice.safeParse(rawFormData);
+
+    console.log(validateFields);
+
+    // If form validation fails, return errors early. Otherwise, continue.
+    if (!validateFields.success) {
+        console.log("here");
+        return {
+            errors: validateFields.error.flatten().fieldErrors,
+            message: 'Missing Fields. Failed to Update Invoice.',
+        }
+    }
+
+    const {customerId, amount, status} = validateFields.data;
 
     // It is good practice to store monetary values in cents in your database to eliminate JS
     // floating-point errors and ensure greater accuracy.
