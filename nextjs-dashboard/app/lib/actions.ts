@@ -15,10 +15,15 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 const FormSchema = z.object({
     id: z.string(),
-    customerId: z.string(),
+    customerId: z.string({
+        invalid_type_error: 'Please select a customer.',
+    }),
     // Coerces the input into the right type -> Number(input)
-    amount: z.coerce.number(),
-    status: z.enum(['pending', 'paid']),
+    amount: z.coerce.number()
+        .gt(0, {message: 'Please enter an amount greater than $0'}),
+    status: z.enum(['pending', 'paid'], {
+        invalid_type_error: 'Please select an invoice status.',
+    }),
     date: z.string(),
 });
 
@@ -30,7 +35,16 @@ const UpdateInvoice = FormSchema.omit({id: true, date: true});
 // Server Actions (now Server Functions) allow Client Components to call async functions executed on
 // the server.
 
-export async function createInvoice(previousState, formData: FormData) {
+export type State = {
+    errors?: {
+        customerId?: string[];
+        amount?: string[];
+        status?: string[];
+    };
+    message?: string | null;
+}
+
+export async function createInvoice(previousState: State, formData: FormData) {
     // Extract the form values
     const rawFormData = {
         customerId: formData.get('customerId'),
@@ -39,8 +53,17 @@ export async function createInvoice(previousState, formData: FormData) {
     };
 
     // Validate the types using zod
-    const { customerId, amount, status } = CreateInvoice.parse(rawFormData);
+    const validateFields = CreateInvoice.safeParse(rawFormData);
 
+    // If form validation fails, return errors early. Otherwise, continue.
+    if (!validateFields.success) {
+        return {
+            errors: validateFields.error.flatten().fieldErrors,
+            message: 'MissingFields. Failed to Create Invoice.',
+        }
+    }
+
+    const {customerId, amount, status} = validateFields.data;
     // It is good practice to store monetary values in cents in your database to eliminate JS
     // floating-point errors and ensure greater accuracy.
     const amountInCents = amount * 100;
@@ -52,10 +75,10 @@ export async function createInvoice(previousState, formData: FormData) {
             INSERT INTO invoices (customer_id, amount, status, date)
             VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
         `;
-    } catch (err: any) {
-        // Log the error to the console
-        console.error(err);
-        return err.toString();
+    } catch (error: any) {
+        return {
+            message: 'Database Error: Failed to Create Invoice.',
+        }
     }
 
     // Revalidate the cache for the invoices specific page path, with fresh data fetched from the
@@ -65,7 +88,7 @@ export async function createInvoice(previousState, formData: FormData) {
     redirect('/dashboard/invoices');
 }
 
-export async function updateInvoice(id: string, previousState, formData: FormData) {
+export async function updateInvoice(id: string, previousState: State, formData: FormData) {
     // Extract the form values
     const rawFormData = {
         customerId: formData.get('customerId'),
@@ -100,7 +123,7 @@ export async function updateInvoice(id: string, previousState, formData: FormDat
 }
 
 // Delete an invoice identified by `id`
-export async function deleteInvoice(id: string, previousState, formData: FormData) {
+export async function deleteInvoice(id: string, previousState: State, formData: FormData) {
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
     } catch (err: any) {
