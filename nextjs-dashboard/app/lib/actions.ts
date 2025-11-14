@@ -30,7 +30,7 @@ const UpdateInvoice = FormSchema.omit({id: true, date: true});
 // Server Actions (now Server Functions) allow Client Components to call async functions executed on
 // the server.
 
-export async function createInvoice(formData: FormData) {
+export async function createInvoice(previousState, formData: FormData) {
     // Extract the form values
     const rawFormData = {
         customerId: formData.get('customerId'),
@@ -65,7 +65,7 @@ export async function createInvoice(formData: FormData) {
     redirect('/dashboard/invoices');
 }
 
-export async function updateInvoice(id: string, formData: FormData) {
+export async function updateInvoice(id: string, previousState, formData: FormData) {
     // Extract the form values
     const rawFormData = {
         customerId: formData.get('customerId'),
@@ -100,7 +100,7 @@ export async function updateInvoice(id: string, formData: FormData) {
 }
 
 // Delete an invoice identified by `id`
-export async function deleteInvoice(id: string, formData: FormData) {
+export async function deleteInvoice(id: string, previousState, formData: FormData) {
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
     } catch (err: any) {
