@@ -60,12 +60,9 @@ export default function DeleteInvoiceForm({
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <InvoiceCard title="Customer name" value={invoice.id} type="customer" />
-
         {/* Invoice Amount */}
         <InvoiceCard title="Amount" value={invoice.amount} type="amount" />
-
         {/* Invoice Status */}
-        ;
         <InvoiceCard title="Status" value={invoice.status} type={ status } />
       </div>
       <div className="mt-6 flex justify-end gap-4">
