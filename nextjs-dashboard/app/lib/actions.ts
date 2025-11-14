@@ -52,12 +52,10 @@ export async function createInvoice(formData: FormData) {
             INSERT INTO invoices (customer_id, amount, status, date)
             VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
         `;
-    } catch (error) {
+    } catch (err: any) {
         // Log the error to the console
-        console.error(error);
-        return {
-            message: 'Database Error: Failed to Create Invoice.',
-        }
+        console.error(err);
+        return err.toString();
     }
 
     // Revalidate the cache for the invoices specific page path, with fresh data fetched from the
@@ -88,12 +86,10 @@ export async function updateInvoice(id: string, formData: FormData) {
             SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
             WHERE id = ${id}
         `;
-    } catch (error) {
+    } catch (err: any) {
         // Log the error to the console
-        console.error(error);
-        return {
-            message: 'Database Error: Failed to Edit Invoice.',
-        }
+        console.error(err);
+        return err.toString();
     }
 
     // Revalidate the cache for the invoices specific page path, with fresh data fetched from the
@@ -105,17 +101,12 @@ export async function updateInvoice(id: string, formData: FormData) {
 
 // Delete an invoice identified by `id`
 export async function deleteInvoice(id: string, formData: FormData) {
-    // Simulate an error
-    throw new Error('Failed to Delete Invoice');
-
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
-    } catch (error) {
+    } catch (err: any) {
         // Log the error to the console
-        console.error(error);
-        return {
-            message: 'Database Error: Failed to Edit Invoice.',
-        }
+        console.error(err);
+        return err.toString();
     }
 
     revalidatePath('/dashboard/invoices');

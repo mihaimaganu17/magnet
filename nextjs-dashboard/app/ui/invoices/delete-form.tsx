@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { deleteInvoice } from '@/app/lib/actions';
 import { lusitana_400 } from '@/app/ui/fonts';
+import { useActionState } from 'react';
 
 const iconMap = {
     customer: UserCircleIcon,
@@ -51,7 +52,7 @@ export default function DeleteInvoiceForm({
 }: {
   invoice: InvoiceForm;
 }) {
-  const deleteInvoiceWithId = deleteInvoice.bind(null, invoice.id);
+  const [message, deleteInvoiceWithId] = useActionState(deleteInvoice.bind(null, invoice.id), null);
   const status = invoice.status === 'pending' ? 'status_pending' : 'status_paid';
   
   return (
@@ -76,6 +77,7 @@ export default function DeleteInvoiceForm({
         </Link>
         <Button type="submit">Delete Invoice</Button>
       </div>
+      {!!message && <p>{message}</p>}
     </form>
   );
 }

@@ -8,10 +8,14 @@ import {
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { createInvoice } from '@/app/lib/actions';
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
+import { useActionState } from 'react';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
+  const [message, createInvoiceAction] = useActionState(createInvoice, null);
+  
   return (
-    <form action={createInvoice}>
+    <form action={createInvoiceAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -108,6 +112,10 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         </Link>
         <Button type="submit">Create Invoice</Button>
       </div>
+      {/* Double !! ensures the value is a boolean and negates it.
+        https://stackoverflow.com/questions/9284664/double-exclamation-points
+      */}
+      {!!message && <p>{message}</p>}
     </form>
   );
 }
