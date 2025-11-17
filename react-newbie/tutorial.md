@@ -95,3 +95,12 @@ Very artistic and hardcore graphics [Airbnb's visx](https://airbnb.io/visx/)
 
 ## Chapter 13
 [Learn accessiblity](https://web.dev/learn/accessibility/)
+
+## Chapter 14
+[Managing env vars in Vercel](https://vercel.com/docs/environment-variables/managing-environment-variables)
+[NextJS callbacks](https://authjs.dev/reference/nextjs#callbacks)
+[proxy.js from nextjs docs](https://nextjs.org/docs/app/api-reference/file-conventions/proxy)
+[Targetting specific pages where the proxy should run on](https://nextjs.org/docs/app/api-reference/file-conventions/proxy#matcher)
+[Credential Providers](https://authjs.dev/getting-started/providers/credentials)
+[NextAuthJS authentication options](https://authjs.dev/getting-started/authentication)
+[AuthJS errors](https://authjs.dev/reference/core/errors)
